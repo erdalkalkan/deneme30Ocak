@@ -9,4 +9,8 @@ import java.util.List;
 
 public class HomePage extends CommonPage {
 
+    @FindBy(xpath = "//a[@button='asdd']")
+    public WebElement deneme2Btn;
+
+
 }
