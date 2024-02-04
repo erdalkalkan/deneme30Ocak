@@ -44,12 +44,18 @@ public class HomePage extends CommonPage {
         LinkedInBtn.click();
     }
 
+    public void clickContactUsBtn(){
+        ReusableMethods.hover(ContactUsBtnAtBotton);
+        ContactUsBtnAtBotton.click();
+    }
+
 
     //Butona tıkladıktan sonra gelen sayfanın title ile doğrulanmasını (contains) sağlar, T yada F döner
-    public boolean amIinRightPage(String title){
+    public boolean amIinRightPageWhenOpenNewWindow(String title){
         ReusableMethods.switchToWindow(1);
         return driver.getTitle().contains(title);
     }
+
 
     //HomePage de iken sayfanın en altına gidersiniz action classlarla,
     // Böylece Thread.sleep kullanmanıza gerek kalmaz
