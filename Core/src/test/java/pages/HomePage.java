@@ -57,7 +57,7 @@ public class HomePage extends CommonPage {
         ReusableMethods.hover(LinkedInBtn);
     }
 
-    //revert edilen değişikler push edildi
+
 
 
 
