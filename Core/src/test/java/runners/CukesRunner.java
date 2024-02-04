@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
 //        ,
 //        dryRun = true
 //        ,
-        tags = "@BU-92"
+        tags = "@Erdal"
 
 )
 public class CukesRunner {

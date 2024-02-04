@@ -1,4 +1,5 @@
 @BU-69
+@Erdal
 Feature: Test Execution of US028
 
 	#*Phone should be visible*

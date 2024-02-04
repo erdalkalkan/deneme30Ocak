@@ -1,4 +1,4 @@
-package stepDefinitions.uıStepdef;
+package stepDefinitions.uiStepdef;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,6 +13,6 @@ public class US031_LinkedInBtn extends CommonPage {
 
     @Then("User should be able to click LinkedIn button")
     public void userShouldBeAbleToClickLinkedInButton() {
-        Assert.assertTrue(getHomePage().amIinRightPage("LinkedIn"));
+        Assert.assertTrue(getHomePage().amIinRightPageWhenOpenNewWindow("LinkedIn"));
     }
 }

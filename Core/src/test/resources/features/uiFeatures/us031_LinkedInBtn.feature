@@ -1,4 +1,5 @@
 @BU-92
+@Erdal
 Feature: Test Execution of US031
 
   	#*LinkedIn icon should be clickable and relevant page should be visible*

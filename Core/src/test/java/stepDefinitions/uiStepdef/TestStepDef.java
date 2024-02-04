@@ -1,4 +1,4 @@
-package stepDefinitions.uıStepdef;
+package stepDefinitions.uiStepdef;
 
 public class TestStepDef {
 
