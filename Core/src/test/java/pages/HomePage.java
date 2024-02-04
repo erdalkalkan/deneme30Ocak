@@ -1,23 +1,14 @@
 package pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utilities.JSUtils;
 import utilities.ReusableMethods;
-
-import java.util.List;
 
 import static stepDefinitions.Hooks.driver;
 
 
 public class HomePage extends CommonPage {
 
-    @FindBy(css = "[href*='login'].mr-4")
-    public WebElement loginButton; // TODO ilerde sorun yasamak icin tekrar ac =driver.findElement(By.cssSelector("[href*='auth'].mr-2"));
-
-    @FindBy(css = ".mr-4,.mr-2")
-    public List<WebElement> allTitles;
 
     @FindBy(xpath = "//li/a[.='contact us'][@href='/contact-us']")
     public WebElement ContactUsBtnAtBotton;
@@ -52,17 +43,10 @@ public class HomePage extends CommonPage {
         ReusableMethods.hover(LinkedInBtn);
         LinkedInBtn.click();
     }
-    //HomePage sayfasındaysanız Contact Us iconuna tıklamak için kullanabilirsiniz
-    //sayfanın en atına gider ve Contact Us butonuna tıklar
-    public void clickContactUsBtn(){
-        ReusableMethods.hover(ContactUsBtnAtBotton);
-        ContactUsBtnAtBotton.click();
-    }
 
 
     //Butona tıkladıktan sonra gelen sayfanın title ile doğrulanmasını (contains) sağlar, T yada F döner
-    //Yeni bir sekme ile sayfa açılacaksa ve o sayfayı title ile kontrol edecekseniz kullanın
-    public boolean amIinRightPageWhenOpenNewWindow(String title){
+    public boolean amIinRightPage(String title){
         ReusableMethods.switchToWindow(1);
         return driver.getTitle().contains(title);
     }
@@ -74,8 +58,6 @@ public class HomePage extends CommonPage {
     }
 
     //revert edilen değişikler push edildi
-
-
 
 
 
