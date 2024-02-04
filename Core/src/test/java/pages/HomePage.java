@@ -9,6 +9,7 @@ import static stepDefinitions.Hooks.driver;
 
 public class HomePage extends CommonPage {
 
+
     @FindBy(xpath = "//li/a[.='contact us'][@href='/contact-us']")
     public WebElement ContactUsBtnAtBotton;
 
@@ -55,6 +56,7 @@ public class HomePage extends CommonPage {
     public void goesToDeepAtTheHomePage() {
         ReusableMethods.hover(LinkedInBtn);
     }
+
 
 
 
