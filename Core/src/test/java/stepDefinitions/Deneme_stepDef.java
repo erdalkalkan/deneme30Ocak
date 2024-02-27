@@ -17,6 +17,11 @@ public class Deneme_stepDef {
     @Given("Step Definition icinde user and password")
     public void step_definition_icinde_user_and_password() {
 
+        String mN= "a";
+        for (int i = 0; i < 20; i++) {
+            mN += "a";
+        }
+        System.out.println("mN = " + mN);
         Utility.printName();
         Utility.printMail(user1_email);
         Utility.printMail(user1_email);

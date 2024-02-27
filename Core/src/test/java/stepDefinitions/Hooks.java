@@ -1,29 +1,36 @@
 package stepDefinitions;
 
 
+import enums.URL_LINKS;
+import enums.USERCREDENTIAL;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.restassured.response.Response;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
+import pages.LoginPage;
+import pages.RegisterPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 
 public class Hooks {
     public static WebDriver driver;
     public static CommonPage commonPage;
     public static Actions actions;
-
     public static boolean isHeadless = false;
     public static String browserType = "chrome";
-
     public static boolean isFullScreen = true;
     public static int width;
     public static int height;
+    public static LoginPage loginPage;
+    public static String PHPSESSID;
+    public static Response response;
 
     @Before(value = "@headless", order = 0)
     public void setIsHeadless() {
@@ -51,6 +58,20 @@ public class Hooks {
         };
         actions = new Actions(driver);
     }
+
+
+    @Before("@Login")
+    public void urbanicFarmLogin() {
+
+        loginPage = new LoginPage();
+        driver.get(URL_LINKS.LOGIN_URL.getLink());
+        ReusableMethods.waitForPageToLoad(5);
+        loginPage.input_email.sendKeys(USERCREDENTIAL.USERGMAIL.getUsername());
+        loginPage.input_password.sendKeys(USERCREDENTIAL.USERGMAIL.getPassword());
+        loginPage.submit_button.click();
+        loginPage.closeZIPCodeEnterWindow.click();
+    }
+
 
     @After(value = "@UI")
     public void tearDown(Scenario scenario) {

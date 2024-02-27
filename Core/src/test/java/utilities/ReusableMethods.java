@@ -1,5 +1,6 @@
 package utilities;
 
+import io.cucumber.datatable.DataTable;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -315,6 +316,8 @@ public class ReusableMethods {
     }
 
 
+
+    //send Text yapar şayet lokated element görünür değilse scroll yapar sonra text i yollar
     public static void sendText(WebElement element, String text) {
         try{
             waitForClickablility(element, 15).sendKeys(text);
@@ -324,6 +327,7 @@ public class ReusableMethods {
         }
     }
 
+    //girilen saniye miktarı kadar her bir saniye tıklamayı dener
     public static void waitAndClickElement(WebElement element, int seconds) {
         for (int i = 0; i < seconds; i++) {
             try {
@@ -335,6 +339,33 @@ public class ReusableMethods {
         }
     }
 
+    //DataTable ı list of list String e çevirir ve listeyi döner
+    public static List<List<String>> turnDataTableToListOfList(DataTable dataTable){
+        List<List<String>> list = new ArrayList<>();
+        for (int i = 0; i < dataTable.height(); i++) {
+            List<String> row = new ArrayList<>();
+            for (int j = 0; j < dataTable.width(); j++) {
+                row.add(dataTable.column(j).get(i));
+            }
+            list.add(row);
+        }
+        return list;
+    }
+
+    //DataTable'ın ilk row'unu list'e çevirir ve list döner, null varsa "" a çevirir.
+    public static List<String> turnDatatableFirstRowToAList(DataTable dataTable){
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < dataTable.row(0).size(); i++) {
+            if (dataTable.row(0).get(i) == null) {
+                list.set(i,"");
+                continue;
+            }
+            String element = dataTable.row(0).get(i);
+            list.add(element);
+            System.out.println("list = " + list);
+        }
+        return list;
+    }
 
 }
 

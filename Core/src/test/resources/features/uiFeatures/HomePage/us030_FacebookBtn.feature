@@ -1,5 +1,6 @@
 @BU-90
 @Erdal
+@Order(1)
 Feature: Test Execution of US030
 
   @TEST_BU-89

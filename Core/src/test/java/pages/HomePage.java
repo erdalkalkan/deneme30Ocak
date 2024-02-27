@@ -10,6 +10,9 @@ import static stepDefinitions.Hooks.driver;
 public class HomePage extends CommonPage {
 
 
+    @FindBy(xpath = "//li/a[.='Privacy policy'][@href='/privacy-policy']")
+    public WebElement PrivacyPolicyBtnAtBotton;
+
     @FindBy(xpath = "//li/a[.='contact us'][@href='/contact-us']")
     public WebElement ContactUsBtnAtBotton;
 
@@ -24,6 +27,17 @@ public class HomePage extends CommonPage {
     public WebElement FacebookBtn;
 
 
+//    public void screenshotClick(String screenShotPath){
+//
+//        Screen screen= new Screen();
+//        Pattern pattern= new Pattern(screenShotPath);
+//        try {
+//            screen.click(pattern);
+//
+//        } catch (FindFailed e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
 
     //Test Urbanic Farm sitesine gider ve sayfa yüklenene kadar bekler.
@@ -64,6 +78,11 @@ public class HomePage extends CommonPage {
     }
 
 
+    //HomePage sayfasının en altına gidip Privacy_policy butonuna tıklar
+    public void clickPrivacyPolicyBtn(){
+        ReusableMethods.hover(PrivacyPolicyBtnAtBotton);
+        PrivacyPolicyBtnAtBotton.click();
+    }
 
 
 
